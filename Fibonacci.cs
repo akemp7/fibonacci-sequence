@@ -39,10 +39,11 @@ class Program
          string numString = Console.ReadLine();
          try{
              int num = int.Parse(numString);
+             DisplayHalfTriangle(num);
          } catch (FormatException){
              Console.WriteLine("Incorrect format. Please restart and try again.");
          }
-     }
+     } 
   }
 
   public static int DisplayFibSeq(int prevNum, int currNum, int count){
@@ -55,4 +56,18 @@ class Program
       } 
       return prevNum;
   }
+
+
+    public static void DisplayHalfTriangle(int count){
+        string textToDisplay = "";
+        int start = 0;
+        int next = 1;
+        for(int i = 0; i<count; i++){
+            textToDisplay += start.ToString() + " " ;
+            int placeHolder = next;
+            next = next + start;
+            start = placeHolder;
+            Console.WriteLine(textToDisplay);
+        }
+    }
 }
